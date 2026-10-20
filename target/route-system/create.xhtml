@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+<h:head>
+    <title>Создать маршрут</title>
+</h:head>
+<h:body>
+    <h:form id="createForm">
+        <p:panel header="Новый маршрут">
+            <p:messages showDetail="true" closable="true"/>
+
+            <p:panelGrid columns="2" layout="grid">
+                <p:outputLabel value="Название:"/>
+                <p:inputText value="#{routeEditBean.route.name}" required="true"/>
+
+                <p:outputLabel value="Distance (>1):"/>
+                <p:inputText value="#{routeEditBean.route.distance}" required="true" converter="jakarta.faces.Float"/>
+
+                <p:outputLabel value="Rating (>0):"/>
+                <p:inputText value="#{routeEditBean.route.rating}" required="true"/>
+
+                <p:outputLabel value="Coord X (> -268):"/>
+                <p:inputText value="#{routeEditBean.coordinates.x}" required="true"/>
+
+                <p:outputLabel value="Coord Y:"/>
+                <p:inputText value="#{routeEditBean.coordinates.y}" required="true"/>
+
+                <p:outputLabel value="From X:"/>
+                <p:inputText value="#{routeEditBean.from.x}" required="true"/>
+                <p:outputLabel value="From Y:"/>
+                <p:inputText value="#{routeEditBean.from.y}" required="true"/>
+                <p:outputLabel value="From Z:"/>
+                <p:inputText value="#{routeEditBean.from.z}" required="true"/>
+
+                <p:outputLabel value="To X (опционально):"/>
+                <p:inputText value="#{routeEditBean.to.x}"/>
+                <p:outputLabel value="To Y (опционально):"/>
+                <p:inputText value="#{routeEditBean.to.y}"/>
+                <p:outputLabel value="To Z (опционально):"/>
+                <p:inputText value="#{routeEditBean.to.z}"/>
+            </p:panelGrid>
+
+            <p:commandButton value="Сохранить" action="#{routeEditBean.save}" update="@form"/>
+            <p:commandButton value="Отмена" outcome="index" immediate="true"/>
+        </p:panel>
+    </h:form>
+</h:body>
+</html>

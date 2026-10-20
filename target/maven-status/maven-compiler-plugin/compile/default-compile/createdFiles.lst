@@ -1,0 +1,7 @@
+ru\routes\bean\RouteListBean.class
+ru\routes\dao\RouteDao.class
+ru\routes\entity\Coordinates.class
+ru\routes\bean\RouteEditBean.class
+ru\routes\entity\Route.class
+ru\routes\service\RouteService.class
+ru\routes\entity\Location.class

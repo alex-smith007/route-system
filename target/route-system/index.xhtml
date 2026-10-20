@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+<h:head>
+    <title>Маршруты</title>
+</h:head>
+<h:body>
+    <h1>Список маршрутов</h1>
+    <h:form id="mainForm">
+        <p:commandButton value="Создать маршрут" outcome="create" style="margin-bottom: 10px;"/>
+        <p:dataTable var="r" value="#{routeListBean.routes}" paginator="true" rows="10">
+            <p:column headerText="ID"><h:outputText value="#{r.id}"/></p:column>
+            <p:column headerText="Название"><h:outputText value="#{r.name}"/></p:column>
+            <p:column headerText="Действия">
+                <p:commandButton value="Удалить" action="#{routeListBean.delete(r)}" update="@form"/>
+            </p:column>
+        </p:dataTable>
+        <p:messages showDetail="true" closable="true"/>
+    </h:form>
+</h:body>
+</html>
